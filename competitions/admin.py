@@ -1,5 +1,5 @@
 from models import (Competition, Judge, Brewer, Beer, Attribute, Rating, Entry,
-        Result, JudgeRank)
+        Result, JudgeRank, Descriptor)
 from django.contrib import admin
 
 admin.site.register(Attribute)
@@ -11,3 +11,4 @@ admin.site.register(Rating)
 admin.site.register(Entry)
 admin.site.register(Result)
 admin.site.register(JudgeRank)
+admin.site.register(Descriptor)

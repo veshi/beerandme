@@ -19,6 +19,7 @@ class JudgeRank(models.Model):
 
 class Descriptor(models.Model):
     name = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
 
     def __unicode__(self):
         return u'%s' % self.name
@@ -55,6 +56,8 @@ class Attribute(models.Model):
         return u'%s' % self.name
 
 class Entry(models.Model):
+    bjcp_subcategory_choices = (('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D'),
+            ('E', 'E'), ('F', 'F')) 
     beer = models.ForeignKey(Beer)    
     bottle_date = models.DateField()
     url = models.URLField(verbose_name='URL', blank=True)
@@ -62,7 +65,8 @@ class Entry(models.Model):
     competition = models.ForeignKey(Competition)
     entry_number = models.IntegerField(blank=True)
     bjcp_category = models.IntegerField(verbose_name='BJCP Category')
-    bjcp_subcategory = models.CharField(max_length=1, verbose_name='BJCP Subcategory')
+    bjcp_subcategory = models.CharField(max_length=1,
+            verbose_name='BJCP Subcategory', choices=bjcp_subcategory_choices)
     ordinal_position = models.IntegerField(null=True, blank=True)
     number_in_flight = models.IntegerField(null=True, blank=True)
     final_assigned_score = models.IntegerField(null=True, blank=True)
