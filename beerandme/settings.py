@@ -1,4 +1,8 @@
 # Django settings for beerandme project.
+import os
+import dj_database_url
+
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -9,7 +13,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
@@ -143,4 +146,3 @@ LOGGING = {
         },
     }
 }
-

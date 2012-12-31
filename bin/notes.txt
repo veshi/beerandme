@@ -1,0 +1,7 @@
+To start the Python venv,
+
+  source ../venv/bin/activate
+
+To update requirements.txt:
+
+  pip freeze > requirements.txt
